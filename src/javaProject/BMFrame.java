@@ -17,10 +17,17 @@ public class BMFrame extends JFrame{
 		setLocation(screen.width/2, screen.height/2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel=new JPanel();
-		this.add(panel);
-		Image img=kit.getImage("BIcon.png");
+		JPanel panel=new JPanel();//버튼과 이미지 등이 들어갈 패널
+		panel.setLayout(new FlowLayout());//배치관리자 생성: FlowLayout
+		this.add(panel);//프레임에 패널 추가
+		Image img=kit.getImage("BIcon.png");//임시 아이콘
 		setIconImage(img);
+		
+		JButton gameStart=new JButton("게임 시작");
+		JButton option=new JButton("옵션");
+		panel.add(gameStart);
+		panel.add(option);
+		
 		setVisible(true);
 	}
 
