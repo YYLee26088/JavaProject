@@ -1,5 +1,6 @@
 /*
  * 게임 프레임 설정
+ * 이윤영
  */
 package javaProject;
 
