@@ -17,7 +17,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class BMFrame extends JFrame{
-
 	ImageIcon i=new ImageIcon("images/FrameTitle.jpg");
 	Image bg=i.getImage();
 
@@ -61,7 +60,6 @@ public class BMFrame extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			new GamePlaying();
 		}
-		
 	}
 
 }
