@@ -5,6 +5,7 @@ import javax.swing.*;
 public class Blocks extends JLabel{
 	
 	private Type type;
+	private boolean movable;
 	
 	public enum Type{
 		EMPTY,
@@ -30,6 +31,15 @@ public class Blocks extends JLabel{
 		else
 			return false;
 	}
+	
+	public boolean movable() {
+		if(this.type==Type.BOX||this.type==Type.BRICK) {
+			return false;
+		}
+		else
+			return true;
+	}
+	
 	public void setBlockIcon() {
 		switch(this.type) {
 		case EMPTY:
@@ -39,8 +49,6 @@ public class Blocks extends JLabel{
 			this.setIcon(new ImageIcon("images/brick.png"));
 			break;
 		case BOX:
-			break;
-		case PLAYER:
 			break;
 		case ENEMY:
 			break;

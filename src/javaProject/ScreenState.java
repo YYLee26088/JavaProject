@@ -7,6 +7,5 @@ public class ScreenState {
 		GameOver,
 		End
 	}
-	
 
 }

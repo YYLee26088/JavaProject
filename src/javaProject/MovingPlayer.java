@@ -19,7 +19,7 @@ public class MovingPlayer extends JPanel {
 
 	public MovingPlayer() {
 		try {
-			p=ImageIO.read(new File("images/front.png"));
+			p=ImageIO.read(new File("images/character.png"));
 		}catch(IOException e1) {
 			System.out.println("이미지 없음");
 			System.exit(1);
@@ -30,34 +30,17 @@ public class MovingPlayer extends JPanel {
 				int keycode=e.getKeyCode();
 				switch(keycode) {
 				case KeyEvent.VK_UP: py-=10;//방향키: 상 
-				try {
-					p=ImageIO.read(new File("images/back.png"));
-				} catch (IOException e2) {
-					System.out.println("이미지 없음");
-					System.exit(1);
-				} break;
+				
+				break;
 				case KeyEvent.VK_DOWN: py+=10;//방향키: 하
-				try {
-					p=ImageIO.read(new File("images/front.png"));
-				} catch (IOException e2) {
-					System.out.println("이미지 없음");
-					System.exit(1);
-				}break;
+				
+				break;
 				case KeyEvent.VK_LEFT: px-=10;//방향키: 좌
-				try {
-					p=ImageIO.read(new File("images/left.png"));
-				} catch (IOException e2) {
-					System.out.println("이미지 없음");
-					System.exit(1);
-				}break;
+				
+				break;
 				case KeyEvent.VK_RIGHT: px+=10;//방향키: 우
-				try {
-					p=ImageIO.read(new File("images/right.png"));
-				} catch (IOException e2) {
-					System.out.println("이미지 없음");
-					System.exit(1);
-				}break;
-				case KeyEvent.VK_SPACE: bx=px+20; by=py+70; 
+				break;
+				case KeyEvent.VK_SPACE: bx=px; by=py; 
 				try {
 					b=ImageIO.read(new File("images/bomb.png"));
 				} catch (IOException e2) {
