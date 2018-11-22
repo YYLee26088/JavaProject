@@ -10,10 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class StartMenu extends JPanel{
+	private GameState state;
+	
 	private ImageIcon gs=new ImageIcon("images/gamestart.png");
 	
 	private ImageIcon i=new ImageIcon("images/FrameTitle.jpg");
 	private Image bg=i.getImage();
+	
+	private BMFrame frame;
 	
 	JPanel background=new JPanel() {
 		public void paintComponent(Graphics g) {
@@ -39,12 +43,12 @@ public class StartMenu extends JPanel{
 		gameStart.addActionListener(new GameStart());
 		
 	}
-}
-
-
-class GameStart implements ActionListener{
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		new GamePlaying();
+	class GameStart implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			new GamePlaying();
+		}
 	}
 }
+
+

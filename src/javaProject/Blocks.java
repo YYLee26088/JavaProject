@@ -5,7 +5,6 @@ import javax.swing.*;
 public class Blocks extends JLabel{
 	
 	private Type type;
-	private boolean movable;
 	
 	public enum Type{
 		EMPTY,
@@ -51,6 +50,8 @@ public class Blocks extends JLabel{
 		case BOX:
 			break;
 		case ENEMY:
+			break;
+		default:
 			break;
 		}
 	}
