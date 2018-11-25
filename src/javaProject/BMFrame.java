@@ -28,8 +28,6 @@ public class BMFrame extends JFrame{
 		setIconImage(img);//프레임에 패널 추가
 		
 		add(new StartMenu());
-
-		setVisible(true);
 	}
 	
 	public void change(String name) {

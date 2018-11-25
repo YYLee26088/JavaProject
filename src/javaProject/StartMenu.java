@@ -17,7 +17,7 @@ public class StartMenu extends JPanel{
 	private ImageIcon i=new ImageIcon("images/FrameTitle.jpg");
 	private Image bg=i.getImage();
 	
-	private BMFrame frame;
+	//private BMFrame frame;
 	
 	JPanel background=new JPanel() {
 		public void paintComponent(Graphics g) {

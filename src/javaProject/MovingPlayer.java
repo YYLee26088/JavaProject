@@ -11,8 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class MovingPlayer extends JPanel {
+
+	GameMap newStage=new GameMap();
+	Player player=new Player();
+
 	BufferedImage p=null;
 	BufferedImage b=null;
+
 	int px=0,py=0;
 	int bx=0,by=0;
 
@@ -28,24 +33,32 @@ public class MovingPlayer extends JPanel {
 			public void keyPressed(KeyEvent e) {
 				int keycode=e.getKeyCode();
 				switch(keycode) {
-				case KeyEvent.VK_UP: py-=10;//방향키: 상 
-				
-				break;
-				case KeyEvent.VK_DOWN: py+=10;//방향키: 하
-				
-				break;
-				case KeyEvent.VK_LEFT: px-=10;//방향키: 좌
-				
-				break;
-				case KeyEvent.VK_RIGHT: px+=10;//방향키: 우
-				break;
-				case KeyEvent.VK_SPACE: bx=px; by=py; 
-				try {
-					b=ImageIO.read(new File("images/bomb.png"));
-				} catch (IOException e2) {
-					System.out.println("이미지 없음");
-					System.exit(1);
-				}break;
+				case KeyEvent.VK_UP://방향키: 상
+					System.out.println("위로 가기");
+					player.setState(Player.State.MOVE_UP);
+					py-=42;
+					break;
+				case KeyEvent.VK_DOWN://방향키: 하
+					System.out.println("아래로 가기");
+					py+=42;
+					break;
+				case KeyEvent.VK_LEFT://방향키: 좌
+					System.out.println("왼쪽으로 가기");
+					px-=42;
+					break;
+				case KeyEvent.VK_RIGHT://방향키: 우
+					System.out.println("오른쪽으로 가기");
+					px+=42;
+					break;
+				case KeyEvent.VK_SPACE: 
+					System.out.println("폭탄놓기");
+					bx=px; by=py; 
+					try {
+						b=ImageIO.read(new File("images/bomb.png"));
+					} catch (IOException e2) {
+						System.out.println("이미지 없음");
+						System.exit(1);
+					}break;
 				}
 
 				repaint();

@@ -11,16 +11,17 @@ public class Player extends Blocks{
 		MOVE_RIGHT,
 		DIE
 	}
-
-	public State state;
-	public final int MAX_CAPACITY=10;
-	public final int MAX_POWER=5;
+	
+	private State state;
+//	private final int MAX_CAPACITY=10;
+//	private final int MAX_POWER=5;
 
 	public int life;
 	public int bombPower;
 	public int capacity;
-
+	
 	public Player(int life, int bp,int capacity) {
+		new XY(1,1);
 		this.state=State.MOVE_DOWN;
 		this.setType(Type.PLAYER);
 		this.life=life;
@@ -32,21 +33,8 @@ public class Player extends Blocks{
 		this(2, 1, 1);
 	}
 	
-
-	public void setPlayerIcon() {
-		switch(this.state) {
-		case MOVE_UP:
-			this.setIcon(new ImageIcon("images/back.png"));
-		case MOVE_LEFT:
-			this.setIcon(new ImageIcon("images/back.png"));
-		case MOVE_RIGHT:
-			this.setIcon(new ImageIcon("images/back.png"));
-		case DIE:
-			break;
-		default:
-			this.setIcon(new ImageIcon("images/character.png"));
-
-		}
+	public void setState(State state) {
+		this.state=state;
 	}
 
 
