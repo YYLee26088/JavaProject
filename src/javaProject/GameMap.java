@@ -1,6 +1,8 @@
 package javaProject;
 
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -16,6 +18,7 @@ public class GameMap extends JPanel{
 	private XY playerPoint;
 
 	public GameMap() {
+		this.playerPoint=new XY(1,1);
 		this.setLayout(new GridLayout(15,15));
 		this.setSize(637, 637);
 		boxes= new Blocks[MAP_HEIGHT][MAP_WIDTH];
@@ -27,10 +30,7 @@ public class GameMap extends JPanel{
 		
 		for(int i=0; i<MAP_HEIGHT; i++) {
 			for(int j=0; j<MAP_WIDTH; j++) {
-				if(i==1&&j==1) {
-					boxes[i][j].setIcon(new ImageIcon("images/character.png"));
-				}
-				else if(i==0||i==MAP_HEIGHT-1||j==0||j==MAP_WIDTH-1||(i%2==0&&j%2==0)) {
+				if(i==0||i==MAP_HEIGHT-1||j==0||j==MAP_WIDTH-1||(i%2==0&&j%2==0)) {
 					boxes[i][j].setType(Type.BRICK);
 					boxes[i][j].setBlockIcon();
 				}
@@ -41,13 +41,26 @@ public class GameMap extends JPanel{
 			}
 		}
 		//초기화 내용
-
 	}
-
-//	public JLabel getIndex(int x, int y){
-//		return boxes[x][y];
-//	}
-
+	
+	public Blocks[][] getMap(){
+		return boxes;
+	}
+	
+	public int getPx() {
+		return playerPoint.getX();
+	}
+	public void setPx(int x) {
+		this.playerPoint.setX(x);
+	}
+	
+	public int getPy() {
+		return playerPoint.getY();
+	}
+	public void setPy(int y) {
+		this.playerPoint.setY(y);
+	}
+	
 	public static void main(String[] args) {
 		JFrame frame=new JFrame();
 

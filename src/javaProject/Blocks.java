@@ -51,8 +51,9 @@ public class Blocks extends JLabel{
 			break;
 		case ENEMY:
 			break;
-		default:
+		case PLAYER:
 			this.setIcon(new ImageIcon("images/character.png"));
+		default:
 			break;
 		}
 	}

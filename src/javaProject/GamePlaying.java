@@ -6,7 +6,7 @@ public class GamePlaying extends JFrame{
 	
 	public GamePlaying() {
 		BMFrame frame=new BMFrame();
-		setSize(frame.getWidth(),frame.getHeight());
+		setSize(frame.getWidth(),frame.getHeight()+20);
 		setLocation(frame.location());
 		
 //		this.add(background);
