@@ -11,10 +11,9 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 public class BMFrame extends JFrame{
-	
-	public StartMenu sm=null;
+
 	public GamePlaying gp=null;
-	
+
 	public BMFrame() {
 		//현재 화면의 크기 얻기
 		Toolkit kit=Toolkit.getDefaultToolkit();
@@ -26,25 +25,19 @@ public class BMFrame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Image img=kit.getImage("images/Icon.png");//임시 아이콘
 		setIconImage(img);//프레임에 패널 추가
-		
-		add(new StartMenu());
+
+		add(new StartMenu(this));
 	}
-	
-	public void change(String name) {
-		if(name.equals("panel01")) {
-			getContentPane().removeAll();
-			getContentPane().add(sm);
-			revalidate();
-			repaint();
-		}
-		else if(name.equals("panel02")){
-			getContentPane().removeAll();
-			getContentPane().add(gp);
-			revalidate();
-			repaint();
-		}
+
+	public void change() {
+		getContentPane().removeAll();
+		getContentPane().add(new GameMap());//임시임. 추후 변경
+		revalidate();
+		repaint();
 	}
-	
+
+}
+
 //	public void setScreen(ameState state) {
 //		switch(state.getID()) {
 //		case 0:
@@ -53,4 +46,4 @@ public class BMFrame extends JFrame{
 //			this.add(new GamePlaying());
 //		}
 //	}
-}
+
