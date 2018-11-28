@@ -1,5 +1,7 @@
 package javaProject;
-
+/*
+ * 플레이어의 XY 좌표를 구하는 클래스
+ */
 public class XY {
 	private int x=0;
 	private int y=0;

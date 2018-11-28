@@ -14,7 +14,7 @@ public class MovingPlayer extends JPanel {
 		this.setLayout(null);
 		this.add(stage);
 
-		Blocks[][] m=stage.getMap();
+		Blocks[][] m=stage.getMap();//맵 가져오기
 
 		//키 리스너를 무명클래스로 구현
 		addKeyListener(new KeyListener() {
@@ -26,8 +26,6 @@ public class MovingPlayer extends JPanel {
 					if(m[stage.getPx()][stage.getPy()-1].movable()==true) {
 						System.out.println("위로 가기");
 						stage.setPy(stage.getPy()-1);
-						m[stage.getPx()][stage.getPy()-1].setType(Blocks.Type.PLAYER);
-						m[stage.getPx()][stage.getPy()-1].setBlockIcon();
 					}
 					else {
 						System.out.println("막힌 길");

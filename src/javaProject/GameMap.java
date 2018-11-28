@@ -15,11 +15,11 @@ public class GameMap extends JPanel{
 	private Blocks[][] boxes;
 	private final int MAP_WIDTH=15;
 	private final int MAP_HEIGHT=15;
-	private XY playerPoint;
+	private XY playerPoint;//플레이어의 위치를 저장할 변수
 
 	public GameMap() {
-		this.playerPoint=new XY(1,1);
-		this.setLayout(new GridLayout(15,15));
+		playerPoint=new XY(1,1);//초기 좌표는 (1,1)로 둔다
+		this.setLayout(new GridLayout(15,15));//규칙적인 레이블 배치를 위해 grid layout으로 구현
 		this.setSize(637, 637);
 		boxes= new Blocks[MAP_HEIGHT][MAP_WIDTH];
 		for (int i=0; i<MAP_HEIGHT; i++) {
