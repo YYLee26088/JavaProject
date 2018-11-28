@@ -4,8 +4,6 @@ import javax.swing.*;
 
 public class Blocks extends JLabel{
 	
-	private Type type;
-	
 	public enum Type{
 		EMPTY,
 		BRICK,
@@ -13,6 +11,8 @@ public class Blocks extends JLabel{
 		PLAYER,
 		ENEMY
 	}
+	
+	private Type type;
 	
 	public void setType(Type t) {
 		this.type=t;
@@ -23,8 +23,8 @@ public class Blocks extends JLabel{
 	}
 	
 	public boolean breakable() {
-		if(this.type==Type.BOX||this.type==Type.ENEMY||
-				this.type==Type.PLAYER) {
+		if(this.type.equals(Type.BOX)||this.type.equals(Type.ENEMY)||
+				this.type.equals(Type.PLAYER)) {
 			return true;
 		}
 		else
@@ -39,8 +39,8 @@ public class Blocks extends JLabel{
 			return true;
 	}
 	
-	public void setBlockIcon() {
-		switch(this.type) {
+	public void addIcon(Blocks b) {
+		switch(b.type) {
 		case EMPTY:
 			this.setIcon(new ImageIcon("images/floor.png"));
 			break;

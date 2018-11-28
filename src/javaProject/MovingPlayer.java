@@ -17,7 +17,7 @@ public class MovingPlayer extends JPanel {
 		Blocks[][] m=stage.getMap();//맵 가져오기
 
 		//키 리스너를 무명클래스로 구현
-		addKeyListener(new KeyListener() {
+		addKeyListener(new KeyListener() {//패널에 키 이벤트 처리를 추가한 것임
 			public void keyPressed(KeyEvent e) {
 				int keycode=e.getKeyCode();
 				switch(keycode) {

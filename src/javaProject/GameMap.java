@@ -32,7 +32,7 @@ public class GameMap extends JPanel{
 			for(int j=0; j<MAP_WIDTH; j++) {
 				if(i==0||i==MAP_HEIGHT-1||j==0||j==MAP_WIDTH-1||(i%2==0&&j%2==0)) {
 					boxes[i][j].setType(Type.BRICK);
-					boxes[i][j].setBlockIcon();
+					boxes[i][j].setText("@");
 				}
 				else {
 					boxes[i][j].setType(Type.EMPTY);
