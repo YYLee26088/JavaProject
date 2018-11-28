@@ -10,7 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class StartMenu extends JPanel{
-	private GameState state;
+	//private GameState state;
+	private BMFrame frame;
+	private JButton gameStart;
 	
 	private ImageIcon gs=new ImageIcon("images/gamestart.png");
 	
@@ -26,10 +28,13 @@ public class StartMenu extends JPanel{
 		}
 	};
 
-	public StartMenu() {
-		this.setSize(1013,637);
+	public StartMenu(BMFrame frame) {
+		this.frame=frame;
+		
 		this.setLayout(null);
-		JButton gameStart=new JButton(gs);
+		this.setSize(1013,637);
+		
+		gameStart=new JButton(gs);
 		gameStart.setBorderPainted(false);
 		gameStart.setContentAreaFilled(false);
 		gameStart.setFocusPainted(false);
@@ -40,13 +45,13 @@ public class StartMenu extends JPanel{
 		this.add(background);
 		background.setBounds(0, 0, 1013, 637);
 		
-		gameStart.addActionListener(new GameStart());
+		gameStart.addActionListener(new GameStart());//이벤트 추가
 		
 	}
 	class GameStart implements ActionListener{
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			new GamePlaying();
+		public void actionPerformed(ActionEvent e) {	
+			frame.change();
 		}
 	}
 }
