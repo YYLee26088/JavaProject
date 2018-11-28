@@ -31,8 +31,7 @@ public class MovingPlayer extends JPanel {
 						System.out.println("막힌 길");
 						stage.setPy(stage.getPy());
 					}
-					System.out.println("플레이어의 인덱스"+stage.getPy()+","+stage.getPx());
-					//System.out.println("플레이어의 인덱스"+);
+					System.out.println(stage.getPoint());
 					break;
 				case KeyEvent.VK_DOWN://방향키: 하
 					if(m[stage.getPx()][stage.getPy()+1].movable()==true) {
@@ -43,7 +42,7 @@ public class MovingPlayer extends JPanel {
 						System.out.println("막힌 길");
 						stage.setPy(stage.getPy());
 					}
-					System.out.println("플레이어의 인덱스"+stage.getPy()+","+stage.getPx());
+					System.out.println(stage.getPoint());
 					break;
 				case KeyEvent.VK_LEFT://방향키: 좌
 					if(m[stage.getPx()-1][stage.getPy()].movable()==true) {
@@ -54,7 +53,7 @@ public class MovingPlayer extends JPanel {
 						System.out.println("막힌 길");
 						stage.setPx(stage.getPx());
 					}
-					System.out.println("플레이어의 인덱스"+stage.getPy()+","+stage.getPx());
+					System.out.println(stage.getPoint());
 					break;
 				case KeyEvent.VK_RIGHT://방향키: 우
 					if(m[stage.getPx()+1][stage.getPy()].movable()==true) {
@@ -65,7 +64,7 @@ public class MovingPlayer extends JPanel {
 						System.out.println("막힌 길");
 						stage.setPx(stage.getPx());
 					}
-					System.out.println("플레이어의 인덱스"+stage.getPy()+","+stage.getPx());
+					System.out.println(stage.getPoint());
 					break;
 				case KeyEvent.VK_SPACE: 
 					System.out.println("폭탄놓기");

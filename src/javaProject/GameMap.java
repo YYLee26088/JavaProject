@@ -61,6 +61,10 @@ public class GameMap extends JPanel{
 		this.playerPoint.setY(y);
 	}
 	
+	public String getPoint() {
+		return "플레이어 좌표 ("+this.playerPoint.getY()+","+this.playerPoint.getX()+")";
+	}
+	
 	public static void main(String[] args) {
 		JFrame frame=new JFrame();
 

@@ -1,6 +1,6 @@
 package javaProject;
 /*
- * 플레이어의 XY 좌표를 구하는 클래스
+ * 플레이어의 좌표를 구하는 클래스
  */
 public class XY {
 	private int x=0;
@@ -26,4 +26,5 @@ public class XY {
 	public void setY(int y) {
 		this.y=y;
 	}
+	
 }

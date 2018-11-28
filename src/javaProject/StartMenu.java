@@ -32,7 +32,7 @@ public class StartMenu extends JPanel{
 		this.frame=frame;
 		
 		this.setLayout(null);
-		this.setSize(1013,637);
+		this.setSize(frame.getWidth(),frame.getHeight());
 		
 		gameStart=new JButton(gs);
 		gameStart.setBorderPainted(false);

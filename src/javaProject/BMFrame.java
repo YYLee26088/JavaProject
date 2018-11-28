@@ -31,7 +31,7 @@ public class BMFrame extends JFrame{
 
 	public void change() {
 		getContentPane().removeAll();
-		getContentPane().add(new GameMap());//임시임. 추후 변경
+		getContentPane().add(new MovingPlayer());
 		revalidate();
 		repaint();
 	}
