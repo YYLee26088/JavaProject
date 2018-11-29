@@ -13,6 +13,7 @@ public class Test extends JFrame{
 	JLabel[][] temp;
 	JLabel p;
 	JLabel wall;
+
 	int px, py;//길이, 너비
 
 	MyMap newMap=new MyMap();
@@ -20,9 +21,12 @@ public class Test extends JFrame{
 	public Test(){
 		setTitle("테스트");
 		setSize(300,300); // 창크기
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 종료시역활
-		this.setContentPane(newMap); // 패널 적용
-		setVisible(true); // 창패널 보여주기 여부
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		
+		add(newMap);
+		
+		this.setContentPane(newMap); 
+		setVisible(true); 
 		newMap.requestFocus(); // 포커스 점령
 	}
 
@@ -38,26 +42,36 @@ public class Test extends JFrame{
 //	}
 
 	class MyMap extends JPanel{
+		
+		public void setPlayer(int x, int y) {
+			temp[x][y]=p;
+		}
+		
 		public MyMap(){
 			setLayout(new GridLayout(13,13));
 			temp=new JLabel[13][13];
 
 			p=new JLabel("@");
+			wall=new JLabel("■");
+			
+			p.setLocation(20, 20);
+			
+			add(p);
 
 			px=1; py=1;
-			p.setSize(20,20);
 			
 			for(int i=0;i<13;i++) {
 				for(int j=0;j<13;j++) {
 					temp[i][j]=new JLabel();
-					if(i==0||i==12||j==0||j==12||(i%2==0&&j%2==0)) {
-						temp[i][j].setText("■");
-						temp[i][j]=wall;
-
+					if(i==0||i==12||j==0||j==12) {
+						temp[i][j]=new JLabel("■");
 					}
 					add(temp[i][j]);
+					
 				}
 			}
+			
+			this.setPlayer(px, py);
 
 			addKeyListener(new KeyListener() {//무명클래스
 				public void keyPressed(KeyEvent e) {
@@ -65,34 +79,42 @@ public class Test extends JFrame{
 
 					switch(keycode) {
 					case KeyEvent.VK_UP://방향키: 상
-						if(temp[px][py-1]==wall) {//==wall
+						if(temp[px][py-1].getText().equals("■")) {//==wall
 							System.out.println("막힘");
 						}
 						else {
+							py--;
+							
 							System.out.println("위로 1칸");
 						}
 						break;
 					case KeyEvent.VK_DOWN://방향키: 하
-						if(temp[px][py-1].getText().equals("■")) {
+						if(temp[px][py+1].getText().equals("■")) {
 							System.out.println("막힘");
 						}
 						else {
+							py++;
+							temp[px][py]=p;
 							System.out.println("아래로 1칸");
 						}
 						break;
 					case KeyEvent.VK_LEFT://방향키: 좌
-						if(temp[px][py-1].getText().equals("■")) {
+						if(temp[px-1][py].getText().equals("■")) {
 							System.out.println("막힘");
 						}
 						else {
+							px--;
+							temp[px][py]=p;
 							System.out.println("왼쪽으로 1칸");
 						}
 						break;
 					case KeyEvent.VK_RIGHT://방향키: 우
-						if(temp[px][py-1].getText().equals("■")) {
+						if(temp[px+1][py].getText().equals("■")) {
 							System.out.println("막힘");
 						}
 						else {
+							px++;
+							temp[px][py]=p;
 							System.out.println("오른쪽으로 1칸");
 						}
 						break;
@@ -106,7 +128,6 @@ public class Test extends JFrame{
 	}
 	public static void main(String args[]) {
 		new Test();
-
 	}
 
 

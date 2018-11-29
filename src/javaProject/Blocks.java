@@ -5,11 +5,11 @@ import javax.swing.*;
 public class Blocks extends JLabel{
 	
 	public enum Type{
-		EMPTY,
-		BRICK,
-		BOX,
-		PLAYER,
-		ENEMY
+		EMPTY,//0
+		BRICK,//1
+		BOX,//2
+		PLAYER,//3
+		ENEMY//4
 	}
 	
 	private Type type;

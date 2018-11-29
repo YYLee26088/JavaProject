@@ -1,20 +1,42 @@
 package javaProject;
 
+import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class MovingPlayer extends JPanel {
 
 	GameMap stage=new GameMap();
 	int bx=0,by=0;
+	
+//	private ImageIcon i=new ImageIcon("temp/back.png");
+//	
+//	JPanel background=new JPanel() {
+//		public void paintComponent(Graphics g) {
+//			super.paintComponent(g);
+//			g.drawImage(i.getImage(), 0, 0, null);
+//			repaint();
+//		}
+//	};
 
 	public MovingPlayer() {
-		this.setLayout(null);
-		this.add(stage);
+
+//		this.add(background);
+
+		this.setLayout(new GridLayout(15,15));
+		this.setSize(600,600);
 
 		Blocks[][] m=stage.getMap();//맵 가져오기
+		
+		for(int i=0;i<15;i++) {
+			for (int j=0;j<15;j++) {
+				this.add(m[i][j]);
+			}
+		}
 
 		//키 리스너를 무명클래스로 구현
 		addKeyListener(new KeyListener() {//패널에 키 이벤트 처리를 추가한 것임
