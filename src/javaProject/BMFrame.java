@@ -15,15 +15,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class BMFrame extends JFrame{
-	
-	private ImageIcon i=new ImageIcon("temp/back.png");
-	
-	JPanel background=new JPanel() {
-		public void paintComponent(Graphics g) {
-			super.paintComponent(g);
-			g.drawImage(i.getImage(), 0, 0, null);
-		}
-	};
 
 	public BMFrame() {
 		//현재 화면의 크기 얻기
@@ -34,7 +25,8 @@ public class BMFrame extends JFrame{
 		setSize(1013,640);//프레임 크기
 		setLocation((screenSize.width-1013)/2, (screenSize.height-637)/2);
 		setLayout(null);
-		setBackground(Color.black);
+
+		getContentPane().setBackground(Color.black);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Image img=kit.getImage("images/Icon.png");//임시 아이콘
@@ -46,8 +38,6 @@ public class BMFrame extends JFrame{
 	public void change() {
 		getContentPane().removeAll();
 		getContentPane().add(new MovingPlayer());
-		getContentPane().add(background);
-		background.setBounds(400,0,600,600);
 		revalidate();
 		repaint();
 	}
