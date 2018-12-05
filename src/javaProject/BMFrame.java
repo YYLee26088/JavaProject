@@ -36,8 +36,12 @@ public class BMFrame extends JFrame{
 	}
 
 	public void change() {
+		MovingPlayer game=new MovingPlayer();
 		getContentPane().removeAll();
-		getContentPane().add(new MovingPlayer());
+		getContentPane().add(game);
+		
+		game.requestFocus();
+		
 		revalidate();
 		repaint();
 	}

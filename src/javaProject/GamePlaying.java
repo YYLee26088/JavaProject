@@ -1,5 +1,5 @@
 package javaProject;
-
+//삭제할 클래스임
 import javax.swing.JPanel;
 
 public class GamePlaying extends JPanel{

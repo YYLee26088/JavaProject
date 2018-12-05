@@ -1,5 +1,5 @@
 package javaProject;
-
+//MovingPlayer 에서 GamePlaying 으로 바꿀 예정
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -17,20 +17,10 @@ public class MovingPlayer extends JPanel {
 	int bx=0,by=0;
 	
 	Color background=new Color(174,174,174);
-	
-//	private ImageIcon i=new ImageIcon("temp/back.png");
-//	
-//	JPanel background=new JPanel() {
-//		public void paintComponent(Graphics g) {
-//			super.paintComponent(g);
-//			g.drawImage(i.getImage(), 0, 0, null);
-//			repaint();
-//		}
-//	};
 
 	public MovingPlayer() {
-
-//		this.add(background);
+		
+		
 		setBackground(background);
 
 		this.setLayout(new GridLayout(15,15));

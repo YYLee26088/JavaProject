@@ -39,10 +39,10 @@ public class Blocks extends JLabel{
 			return true;
 	}
 	
-	public void addIcon(Blocks b) {
-		switch(b.type) {
+	public void addIcon() {
+		switch(this.type) {
 		case EMPTY:
-			this.setIcon(new ImageIcon("images/floor.png"));
+			this.setIcon(null);
 			break;
 		case BRICK:
 			this.setIcon(new ImageIcon("images/brick.png"));

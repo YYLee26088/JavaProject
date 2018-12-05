@@ -1,7 +1,5 @@
 package javaProject;
 
-import javax.swing.ImageIcon;
-
 public class Player extends Blocks{
 	
 	public enum State{
