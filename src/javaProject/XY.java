@@ -27,4 +27,8 @@ public class XY {
 		this.y=y;
 	}
 	
+	public String toString() {
+		return "플레이어 좌표 ("+this.getY()+","+this.getX()+")";
+	}
+	
 }

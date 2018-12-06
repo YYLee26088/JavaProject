@@ -1,6 +1,6 @@
 package javaProject;
 
-public class Player extends Blocks{
+public class Player{
 	
 	public enum State{
 		MOVE_UP,
@@ -21,7 +21,6 @@ public class Player extends Blocks{
 	public Player(int life, int bp,int capacity) {
 		new XY(1,1);
 		this.state=State.MOVE_DOWN;
-		this.setType(Type.PLAYER);
 		this.life=life;
 		this.bombPower=bp;
 		this.capacity=capacity;

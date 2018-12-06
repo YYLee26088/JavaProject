@@ -63,8 +63,4 @@ public class GameMap{
 		this.playerPoint.setY(y);
 	}
 	
-	public String getPoint() {
-		return "플레이어 좌표 ("+this.playerPoint.getY()+","+this.playerPoint.getX()+")";
-	}
-	
 }
