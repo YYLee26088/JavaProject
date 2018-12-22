@@ -38,12 +38,12 @@ public class StartMenu extends JPanel{
 		gameStart.setBorderPainted(false);
 		gameStart.setContentAreaFilled(false);
 		gameStart.setFocusPainted(false);
-		gameStart.setBounds(590, 430, gs.getIconWidth(), gs.getIconHeight());
+		gameStart.setBounds(380, 560, gs.getIconWidth(), gs.getIconHeight());
 		
 		this.add(gameStart);
 		
 		this.add(background);
-		background.setBounds(0, 0, 1013, 637);
+		background.setBounds(0, 0, 1020, 640);
 		
 		gameStart.addActionListener(new GameStart());//이벤트 추가
 		

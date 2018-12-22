@@ -21,13 +21,13 @@ public class MovingPlayer extends JPanel {
 	private Player p;
 	private BufferedImage b=null;
 	
-	Timer timer=new Timer();
+	//Timer timer=new Timer();
 	
 	private XY playerXY;
 	
 	int bx,by;
 	
-	Color background=new Color(174,174,174);
+	Color background=new Color(170,164,151);
 
 	public MovingPlayer() {
 		
@@ -38,13 +38,13 @@ public class MovingPlayer extends JPanel {
 		
 		setBackground(background);//바닥 컬러 설정
 
-		this.setLayout(new GridLayout(15,15));
-		this.setSize(600,600);
+		this.setLayout(new GridLayout(15,25));
+		this.setSize(1005,605);
 
 		Blocks[][] m=stage.getMap();//맵 가져오기
 		
 		for(int i=0;i<15;i++) {
-			for (int j=0;j<15;j++) {
+			for (int j=0;j<25;j++) {
 				this.add(m[i][j]);
 			}
 		}
@@ -56,7 +56,12 @@ public class MovingPlayer extends JPanel {
 				switch(keycode) {
 				
 				case KeyEvent.VK_UP://방향키: 상
-					if(m[stage.getPy()-1][stage.getPx()].movable()==true) {
+					if(stage.getPy()-1<0) {
+						System.out.println("막힌 길");
+						stage.setPy(stage.getPy());
+						playerXY.setY(stage.getPy());
+					}
+					else if(m[stage.getPy()-1][stage.getPx()].movable()==true) {
 						System.out.println("위로 가기");
 						stage.setPy(stage.getPy()-1);
 						playerXY.setY(stage.getPy());
@@ -75,7 +80,12 @@ public class MovingPlayer extends JPanel {
 
 					break;
 				case KeyEvent.VK_DOWN://방향키: 하
-					if(m[stage.getPy()+1][stage.getPx()].movable()==true) {
+					if(stage.getPy()+1>14) {
+						System.out.println("막힌 길");
+						stage.setPy(stage.getPy());
+						playerXY.setY(stage.getPy());
+					}
+					else if(m[stage.getPy()+1][stage.getPx()].movable()==true) {
 						System.out.println("아래로 가기");
 						stage.setPy(stage.getPy()+1);
 						playerXY.setY(stage.getPy());

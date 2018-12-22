@@ -21,10 +21,12 @@ public class BMFrame extends JFrame{
 		Toolkit kit=Toolkit.getDefaultToolkit();
 		Dimension screenSize=kit.getScreenSize();
 
-		setTitle("Bomber Man: 봄버 맨");
-		setSize(1013,640);//프레임 크기
+		setTitle("Maze Escape: 미로 탈출");
+		setSize(1010,633);//프레임 크기
 		setLocation((screenSize.width-1013)/2, (screenSize.height-637)/2);
 		setLayout(null);
+		
+		setResizable(false);
 
 		getContentPane().setBackground(Color.black);
 		
