@@ -18,12 +18,12 @@ import javax.swing.JPanel;
 import javaProject.Blocks.Type;
 
 public class MovingPlayer extends JPanel {
-
+	
 	private GameMap stage;
-	private Player p;
+	//private Player p;
 	private BufferedImage b=null;
-
-	//Timer timer=new Timer();
+	
+	private int stageLevel;
 
 	private XY playerXY;
 
@@ -31,12 +31,9 @@ public class MovingPlayer extends JPanel {
 
 	Color background=new Color(170,164,151);
 
-	public MovingPlayer() {
-		
-		new Sounds().startBgm();//음악재생
-
-		stage=new GameMap();
-		p=new Player();
+	public MovingPlayer(BMFrame frame,int num) {
+		stage=new GameMap(num);
+		//p=new Player();
 
 		playerXY=new XY(stage.getPx(),stage.getPy());
 
@@ -102,10 +99,28 @@ public class MovingPlayer extends JPanel {
 					}
 					catch(Exception ex){System.out.println("사운드없음");}
 					//
-					if(stage.getPy()+1>14) {
-						System.out.println("막힌 길");
-						stage.setPy(stage.getPy());
-						playerXY.setY(stage.getPy());
+					if(stage.getPy()+1==stage.getEndY()&&stage.getPx()==stage.getEndX()) {
+						if(num==2) {
+							try{
+								AudioInputStream ais = AudioSystem.getAudioInputStream(new File("sounds/sound.wav"));
+								Clip clip = AudioSystem.getClip();
+								clip.stop();
+								clip.open(ais);
+								clip.start();
+							}
+							catch(Exception ex){System.out.println("사운드없음");}
+							System.out.println("게임 오버.");
+							frame.clear();
+							stage.setPy(stage.getPy()+1);
+							playerXY.setY(stage.getPy());
+						}
+						else {
+							System.out.println("스테이지 클리어. 다음 스테이지로 넘어갑니다...");
+							stage.setPy(stage.getPy()+1);
+							playerXY.setY(stage.getPy());
+							frame.change(num+1);
+						}
+						
 					}
 					else if(m[stage.getPy()+1][stage.getPx()].movable()==true) {
 						System.out.println("아래로 가기");

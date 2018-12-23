@@ -42,7 +42,7 @@ public class StartMenu extends JPanel{
 		gameStart.setBorderPainted(false);
 		gameStart.setContentAreaFilled(false);
 		gameStart.setFocusPainted(false);
-		gameStart.setBounds(380, 560, gs.getIconWidth(), gs.getIconHeight());
+		gameStart.setBounds(370, 560, gs.getIconWidth(), gs.getIconHeight());
 		
 		this.add(gameStart);
 		
@@ -55,7 +55,8 @@ public class StartMenu extends JPanel{
 	class GameStart implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {	
-			frame.change();
+			frame.change(0);
+			new Sounds().startBgm();//À½¾ÇÀç»ý
 		}
 	}
 }

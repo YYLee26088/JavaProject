@@ -9,7 +9,7 @@ public class Blocks extends JLabel{
 		BRICK,//1
 		BOX,//2
 		PLAYER,//3
-		ENEMY//4
+		KEY//4
 	}
 	
 	private Type type;
@@ -23,8 +23,7 @@ public class Blocks extends JLabel{
 	}
 	
 	public boolean breakable() {
-		if(this.type.equals(Type.BOX)||this.type.equals(Type.ENEMY)||
-				this.type.equals(Type.PLAYER)) {
+		if(this.type.equals(Type.BOX)||this.type.equals(Type.PLAYER)) {
 			return true;
 		}
 		else
@@ -49,7 +48,8 @@ public class Blocks extends JLabel{
 			break;
 		case BOX:
 			break;
-		case ENEMY:
+		case KEY:
+			this.setIcon(new ImageIcon("images/key.png"));
 			break;
 		case PLAYER:
 			this.setIcon(new ImageIcon("images/character.png"));

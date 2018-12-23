@@ -11,10 +11,10 @@ public class GameMap{
 	private final int MAP_WIDTH=25;
 	private final int MAP_HEIGHT=15;
 	private XY playerPoint;//플레이어의 위치를 저장할 변수
+	private XY endPoint;
 
-	public GameMap() {
-		this.maze=new GetMaze().getData();
-		playerPoint=new XY(1,0);//초기 좌표는 (1,1)로 둔다
+	public GameMap(int stage) {
+		this.maze=new GetMaze().getData(stage);
 		
 		block= new Blocks[MAP_HEIGHT][MAP_WIDTH];
 		
@@ -22,13 +22,25 @@ public class GameMap{
 			for(int j=0; j<MAP_WIDTH; j++) {
 				block[i][j] = new Blocks();
 				if(maze[i][j]==2) {
+					playerPoint=new XY(j,i);
 					block[i][j].setType(Type.PLAYER);
-					block[i][j].setIcon(new ImageIcon("images/character.png"));
+					block[i][j].addIcon();
+				}
+				
+				else if(maze[i][j]==3) {
+					endPoint=new XY(j,i);
+					block[i][j].setType(Type.EMPTY);
+				}
+				
+				else if(maze[i][j]==4) {
+					endPoint=new XY(j,i);
+					block[i][j].setType(Type.KEY);
+					block[i][j].addIcon();
 				}
 				
 				else if(maze[i][j]==0) {
 					block[i][j].setType(Type.BRICK);
-					block[i][j].setIcon(new ImageIcon("images/brick.png"));
+					block[i][j].addIcon();
 				}
 				
 				else {
@@ -57,6 +69,14 @@ public class GameMap{
 	
 	public void setPy(int y) {
 		this.playerPoint.setY(y);
+	}
+	
+	public int getEndX() {
+		return endPoint.getX();
+	}
+	
+	public int getEndY() {
+		return endPoint.getY();
 	}
 	
 }
