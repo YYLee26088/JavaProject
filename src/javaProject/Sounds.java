@@ -13,7 +13,7 @@ public class Sounds {
 	
 	public void startBgm() {
 		try{
-			AudioInputStream ais = AudioSystem.getAudioInputStream(new File("sounds/sleepywood.wav"));
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new File("sounds/sleepywood.mp3"));
 			clip=AudioSystem.getClip();
 			clip.open(ais);
 			clip.start();
